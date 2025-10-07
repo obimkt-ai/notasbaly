@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notas Fiscais — Baly</title>
+<style>
+  :root {
+    --blue: #0a66c2;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --muted: #6b7280;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin: 0;
+    background: var(--bg);
+    color: #111827;
+  }
+  header {
+    background: linear-gradient(90deg,var(--blue),#0b80e0);
+    color: white;
+    padding: 20px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(10,30,60,0.08);
+  }
+  .brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .logo {
+    width:44px;
+    height:44px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:18px;
+  }
+  h1{ margin:0; font-size:18px; letter-spacing: -0.2px; }
+  p.subtitle{ margin:0; font-size:13px; opacity:0.95; color:rgba(255,255,255,0.9) }
+  .totalizer {
+    background: rgba(255,255,255,0.12);
+    padding:10px 14px;
+    border-radius:10px;
+    text-align:right;
+    min-width:220px;
+  }
+  .totalizer .label{ font-size:12px; opacity:0.9; }
+  .totalizer .value{ font-size:20px; font-weight:700; margin-top:4px; }
+
+  main{ padding:24px; max-width:1100px; margin:20px auto; }
+  .card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:0 1px 3px rgba(15,23,42,0.04); }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  table thead th{ text-align:left; padding:10px 8px; background:#f3f6fb; color:#0f172a; }
+  table tbody td{ padding:10px 8px; border-top:1px solid #eef2f7; vertical-align:middle; }
+  a.button{ display:inline-block; padding:6px 10px; border-radius:8px; background:var(--blue); color:white; text-decoration:none; font-size:13px; }
+  .right{ text-align:right; }
+  @media (max-width:720px) {
+    header{ flex-direction:column; align-items:flex-start; gap:12px; }
+    .totalizer{ width:100%; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">B</div>
+    <div>
+      <h1>Notas Fiscais — Baly</h1>
+      <p class="subtitle">Lista extraída — visualização rápida</p>
+    </div>
+  </div>
+  <div class="totalizer" id="totalizer">
+    <div class="label">Total (soma das notas visíveis)</div>
+    <div class="value" id="totalValue">R$0,00</div>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <!-- preserved original table -->
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Data</th>
+      <th>Número da NFe</th>
+      <th>Código de Verificação</th>
+      <th>Valor</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2 de out de 2025 06:40</td>
+      <td>119110017</td>
+      <td>BAL1UVAA</td>
+      <td>R$13.082,45</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D119110017%26cod%3DBAL1UVAA%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEedyX2B2Qg6dgRxt0_GYKXDMsyjUh-49hkWATAXf0LCLlrVI0iTkG1qnU41Ig_aem_xwPXxC-xHvDYYFjT9n7cpQ&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>2 de set de 2025 06:17</td>
+      <td>116716358</td>
+      <td>XRCR545N</td>
+      <td>R$16.797,51</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D116716358%26cod%3DXRCR545N%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEepHXRFlSFjoxOe9osmBiSZMGzwspsdMyrw7tj6j7cAKypK9v8CY8Fye2Qzt8_aem_A95ysUUZADpEglj4yK2j8A&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>2 de ago de 2025 13:56</td>
+      <td>115428553</td>
+      <td>EBG3ZRBZ</td>
+      <td>R$14.196,58</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D115428553%26cod%3DEBG3ZRBZ%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEer501ofKaI2oilbOrcgV9Lq_vPpxmRaREc_bDBUgZmXX-nW3C49Yyip1Faac_aem_fUvRGqzzdTztsM6mH-4AKg&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>2 de jul de 2025 16:00</td>
+      <td>113286888</td>
+      <td>6AM9HZKH</td>
+      <td>R$14.322,44</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D113286888%26cod%3D6AM9HZKH%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEeptQfgyU44rzqFtpx3CgsZ8JwLPFJV38L1q9cB0T1AF7BILeL8QNarGe4Idg_aem_6jz3pRcOlTaItSfu57xx_A&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>2 de jun de 2025 19:16</td>
+      <td>111843016</td>
+      <td>4ACKL4LC</td>
+      <td>R$10.039,86</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D111843016%26cod%3D4ACKL4LC%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEer501ofKaI2oilbOrcgV9Lq_vPpxmRaREc_bDBUgZmXX-nW3C49Yyip1Faac_aem_fUvRGqzzdTztsM6mH-4AKg&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>2 de mai de 2025 05:27</td>
+      <td>107848567</td>
+      <td>ZQAQQYLI</td>
+      <td>R$8.468,98</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D107848567%26cod%3DZQAQQYLI%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEeK6B7VMadROG3xDEPa4Hs1rhjxv1GiugYhx33Z6hyOPx5H0-ai3uT2HW57I0_aem_q-fI9CPOOJ3h1RyFNwfWAQ&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>2 de abr de 2025 15:43</td>
+      <td>106752972</td>
+      <td>7DRXQL2D</td>
+      <td>R$10.522,95</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D106752972%26cod%3D7DRXQL2D%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEeCENHQvIlG4Q6NjJrsDPR6AP9KZr_otCGvxULCp4Oj0QH2DWNYx6RWamUms4_aem_g09BRdRtAG0n4_0BOBAwJw&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>3 de mar de 2025 07:34</td>
+      <td>105019874</td>
+      <td>JAZM8UNE</td>
+      <td>R$6.985,87</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D105019874%26cod%3DJAZM8UNE%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEe9cg9NpH404XXL8cNdfIEusxa30paRNDY_vFtFk84GFWOn6kDq2Trm3GFs20_aem_2UK_VAdHKb8lD4x9Pt-11g&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+    <tr>
+      <td>2 de fev de 2025 18:54</td>
+      <td>102854259</td>
+      <td>L816ESNT</td>
+      <td>R$1.769,72</td>
+      <td><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fnfe.prefeitura.sp.gov.br%2Fcontribuinte%2Fnotaprint.aspx%3Fccm%3D42427630%26nf%3D102854259%26cod%3DL816ESNT%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwa0RYUjZCbTZIcTJicWhpVQEebNxyDJMFRgQt3ZcACcN0aLRhj0KOuoyDS7DXoTDRDMWwAEMAglQI-9HlOO0_aem_IrMQdl_2LDf4eFIIHHOMIA&h=AT2dXDX2G4FxbYByqXIYMow_ycQC2hBiD3ych05wYsA06bpmYzWfzcToUkAaCzpQWWgqgxZPw3WYxiHrM8jm2pOE2TQG6TK4gIUYLXGAqofjmHazhVUnQANWV_0WKejxsx-1kw" target="_blank">Ver Nota</a></td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</main>
+
+<script>
+// Utility: parse currency strings like "R$13.082,45" -> number 13082.45
+function parseBRL(str) {
+  if (!str) return 0;
+  // remove anything that's not digit, comma or dot or minus
+  let s = str.replace(/[^0-9,.-]/g,'').trim();
+  // If there is a comma and a dot, assume dot is thousands and comma decimal.
+  // If only comma present, assume comma is decimal separator.
+  if (s.indexOf('.') !== -1 && s.indexOf(',') !== -1) {
+    s = s.replace(/\./g,''); // remove thousand sep
+    s = s.replace(/,/,'.'); // decimal comma -> dot
+  } else if (s.indexOf(',') !== -1 && s.indexOf('.') === -1) {
+    s = s.replace(/,/,'.');
+  } else {
+    // only dots or only digits: leave as is
+  }
+  let n = parseFloat(s);
+  return isNaN(n) ? 0 : n;
+}
+
+// Format number to BRL "R$12.345,67"
+function formatBRL(n) {
+  return n.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
+}
+
+function computeTotal() {
+  // find table and determine which column is "Valor"
+  const table = document.querySelector('table');
+  if (!table) return;
+  const headers = Array.from(table.querySelectorAll('thead th')).map(h => h.textContent.trim().toLowerCase());
+  let valorIndex = headers.findIndex(h => h.includes('valor'));
+  if (valorIndex === -1) {
+    // fallback: search the first row for a cell containing "R$"
+    valorIndex = 3; // default based on your file
+  }
+  let sum = 0;
+  const rows = table.querySelectorAll('tbody tr');
+  rows.forEach(r => {
+    const cells = r.querySelectorAll('td');
+    if (cells.length > valorIndex) {
+      const text = cells[valorIndex].textContent.trim();
+      const value = parseBRL(text);
+      sum += value;
+    }
+  });
+  document.getElementById('totalValue').textContent = formatBRL(sum);
+}
+
+// run on load
+document.addEventListener('DOMContentLoaded', function() {
+  computeTotal();
+});
+
+// Also expose a simple search filter to update total when user filters (optional)
+</script>
+
+</body>
+</html>
